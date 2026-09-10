@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Tokens da marca — Dr. Carlos Arthur Athayde
+ * Extraídos do manual de marca (Paleta de Cor).
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Paleta oficial */
+  --color-brand-brown: #544131; /* R84  G65  B49  — cor principal */
+  --color-brand-blue: #34568a; /* R52  G86  B138 — azul institucional */
+  --color-brand-sky: #deeafa; /* R222 G234 B250 — azul claro */
+  --color-brand-taupe: #b2a098; /* R178 G160 B152 */
+  --color-brand-cream: #efeae6; /* R239 G234 B230 */
+  --color-brand-mist: #ededed; /* R237 G237 B237 */
+  --color-brand-silver: #d1d0d1; /* R209 G208 B209 */
+
+  /* Papéis semânticos */
+  --color-ink: var(--color-brand-brown);
+  --color-muted: #7a6959; /* marrom dessaturado — 5.26:1 sobre branco */
+  --color-surface: #ffffff;
+
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body), "Helvetica Neue", Arial, sans-serif;
+
+  /* Espectro do Instagram — anel animado ao redor do retrato */
+  --ig-1: #feda75;
+  --ig-2: #fa7e1e;
+  --ig-3: #d62976;
+  --ig-4: #962fbf;
+  --ig-5: #4f5bd5;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  /* Véu de azul claro no topo e creme na base — quase imperceptível,
+     dá profundidade sem competir com a marca. */
+  background-image:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-brand-sky) 78%, white) 0%,
+      color-mix(in srgb, var(--color-brand-sky) 30%, white) 26%,
+      #ffffff 54%,
+      color-mix(in srgb, var(--color-brand-cream) 46%, white) 100%
+    );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ---------------------------- Entrada ----------------------------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.72s var(--ease-out-soft) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* -------------------- Anel Instagram (retrato) -------------------- */
+@keyframes ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ig-ring {
+  background: conic-gradient(
+    from 0deg,
+    var(--ig-1),
+    var(--ig-2),
+    var(--ig-3),
+    var(--ig-4),
+    var(--ig-5),
+    var(--ig-4),
+    var(--ig-3),
+    var(--ig-2),
+    var(--ig-1)
+  );
+  animation: ring-spin 14s linear infinite;
+  will-change: transform;
+}
+
+/* --------------------- Micro-interação: brilho -------------------- */
+@keyframes sweep {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+}
+
+.dot-breathe {
+  animation: breathe 2.4s var(--ease-out-soft) infinite;
+}
+
+/* Foco visível consistente em toda a página */
+:where(a, button):focus-visible {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 3px;
+  border-radius: 9999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
