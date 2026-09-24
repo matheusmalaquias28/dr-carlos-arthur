@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# prints e arquivos que o Claude entregou na pasta (~11 MB, nao fazem parte do site)
+/Claude outputs/

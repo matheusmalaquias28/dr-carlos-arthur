@@ -170,30 +170,4 @@ export type Review = {
   text: string;
 };
 
-export const reviews: Review[] = [
-  {
-    id: "kelly-maria",
-    name: "Kelly Maria",
-    text: "Dr. Carlos é um profissional maravilhoso. Super educado, gentil e explica tudo detalhadamente. Minha segunda consulta e só tenho elogios. Extremamente detalhista no mapeamento",
-  },
-  {
-    id: "erico-novikoff",
-    name: "Erico Novikoff",
-    text: "Excelente profissional, me ajudou muito, dentre vários médicos que fui ele foi o único que realmente pareceu se importar e realmente ajudou a tratar de forma correta.",
-  },
-  {
-    id: "bernardo-peres",
-    name: "Bernardo Peres",
-    text: "Dr. Carlos foi excepcional na retirada de um sinal. A todo momento conversamos e o procedimento foi indolor. Agradeço imensamente pela atenção.",
-  },
-  {
-    id: "marcelo-da-silva",
-    name: "Marcelo da Silva",
-    text: "Um excelente profissional!!! Muito atencioso, ficarei com o médico pra vida!! Não fiquei com nenhuma dúvida quanto ao que me explicou sobre o tratamento!",
-  },
-  {
-    id: "cristiane",
-    name: "Cristiane",
-    text: "Excelente médico. Explicou tudo nos mínimos detalhes e além do meu problema, me examinou por completo para ver os sinais no meu corpo. Fiquei muito satisfeita com o atendimento prestado pelo Dr Carlos Arthur.",
-  },
-];
+export const reviews: Review[] = [];
