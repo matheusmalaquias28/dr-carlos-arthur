@@ -1,17 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { display, body } from "./fonts";
+import { sans, display, body } from "./fonts";
 import { site } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: `${site.name} — ${site.specialty}`,
+  title: {
+    default: `${site.name} — ${site.specialty}`,
+    template: `%s — ${site.name}`,
+  },
   description: site.description,
   applicationName: site.name,
   authors: [{ name: site.name }],
   keywords: [
     "dermatologia oncológica",
     "câncer de pele",
+    "mapeamento corporal total",
+    "dermatoscopia digital",
+    "cirurgia dermatológica",
     "dermatologista Ipanema",
     "dermatologista Niterói",
     "Dr. Carlos Arthur Athayde",
@@ -46,7 +52,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${display.variable} ${body.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${sans.variable} ${display.variable} ${body.variable}`}
+    >
       <body className="antialiased">{children}</body>
     </html>
   );
