@@ -132,6 +132,17 @@ export function SiteFooter() {
           <p className="text-[11.5px] font-light text-white/40">
             Responsável técnico: {site.name} — {site.crm}
           </p>
+          <p className="text-[11.5px] font-light text-white/40">
+            Desenvolvido por{" "}
+            <a
+              href="https://energymidia.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/55 transition-colors duration-300 hover:text-white"
+            >
+              Energy
+            </a>
+          </p>
         </div>
       </div>
     </footer>

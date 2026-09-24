@@ -41,22 +41,20 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative mx-auto flex w-full max-w-[1600px] flex-col px-5 pt-20 pb-10 sm:px-8 sm:pb-14 lg:block lg:px-12 lg:pt-32 lg:pb-24">
+      <div className="relative mx-auto flex w-full max-w-[1600px] flex-col px-5 pt-0 pb-6 sm:px-8 sm:pb-14 lg:block lg:px-12 lg:pt-32 lg:pb-24">
         <div className="flex min-h-0 w-full flex-1 flex-col lg:block lg:max-w-[660px] lg:flex-none">
           {/*
-            Retrato do mobile: `flex-1` faz ele ocupar toda a sobra vertical
-            da hero, seja qual for a altura da tela.
-            A caixa interna tem 117,65% da altura do contêiner e fica presa
-            ao topo — o excedente de 17,65% que escapa por baixo equivale a
-            exatamente 15% da altura total da imagem, que é a invasão pedida
-            sobre o texto. (H / 0,85 = 1,1765 H)
+            Retrato do mobile: começa no topo da viewport (atrás do header
+            transparente) e `flex-1` ocupa toda a sobra até o texto.
+            A caixa interna tem 128% da altura do contêiner — o excedente
+            invade o bloco de texto e deixa o retrato o maior possível.
           */}
           <div
             aria-hidden
             className="rise pointer-events-none relative z-0 min-h-0 w-full flex-1 lg:hidden"
             style={{ "--delay": "60ms" } as React.CSSProperties}
           >
-            <div className="absolute inset-x-0 top-0 h-[117.65%]">
+            <div className="absolute inset-x-0 top-0 h-[128%]">
               <Image
                 src="/brand/dr-carlos-hero-mobile.webp"
                 alt=""
@@ -73,21 +71,21 @@ export function Hero() {
           </p>
 
           <h1
-            className="rise relative z-10 mt-4 text-[clamp(2.6rem,7.4vw,5.1rem)] leading-[0.98] font-light tracking-[-0.035em] whitespace-pre-line text-white lg:mt-6"
+            className="rise relative z-10 mt-3 text-[clamp(2.6rem,7.4vw,5.1rem)] leading-[0.98] font-light tracking-[-0.035em] whitespace-pre-line text-white lg:mt-6"
             style={{ "--delay": "110ms" } as React.CSSProperties}
           >
             {hero.title}
           </h1>
 
           <p
-            className="rise relative z-10 mt-6 max-w-[520px] sm:mt-7 text-[15px] leading-relaxed font-light text-white/75 sm:text-base"
+            className="rise relative z-10 mt-4 max-w-[520px] text-[15px] leading-relaxed font-light text-white/75 sm:mt-7 sm:text-base"
             style={{ "--delay": "220ms" } as React.CSSProperties}
           >
             {hero.text}
           </p>
 
           <div
-            className="rise relative z-10 mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4"
+            className="rise relative z-10 mt-6 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4"
             style={{ "--delay": "320ms" } as React.CSSProperties}
           >
             <SmartLink
@@ -100,7 +98,7 @@ export function Hero() {
 
             <SmartLink
               href="/#mapeamento"
-              className="inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-[14px] font-medium text-white ring-1 ring-white/30 transition-all duration-300 ease-[var(--ease-out-soft)] hover:bg-white/10 hover:ring-white/60"
+              className="hidden items-center justify-center gap-2 rounded-full px-7 py-4 text-[14px] font-medium text-white ring-1 ring-white/30 transition-all duration-300 ease-[var(--ease-out-soft)] hover:bg-white/10 hover:ring-white/60 lg:inline-flex"
             >
               {hero.secondaryCta}
             </SmartLink>
